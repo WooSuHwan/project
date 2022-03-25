@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+	<!-- 회원가입 -->
+	<insert id="add">
+		INSERT INTO user (id, pw, name, birth, sex, tell)
+		VALUES (#{id}, #{pw}, #{name}, #{birth}, #{sex}, #{tell})
+	</insert>
+	<!-- 중복확인 -->
+	<select id="idCount" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM user WHERE id = #{user_id}
+	</select>
+	<!-- 로그인 -->
+	<select id="check" parameterType="HashMap" resultType="user">
+		SELECT * FROM user WHERE id=#{id} AND pw=#{pw}
+	</select>
+</mapper>

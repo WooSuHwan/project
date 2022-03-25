@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+	<configuration>
+	
+		<typeAliases>
+			<typeAlias type="kr.ac.kopo.chatting2.model.User" alias="User" />
+			<typeAlias type="kr.ac.kopo.chatting2.model.ChatRoomList" alias="Chatroomlist" />
+			<typeAlias type="kr.ac.kopo.chatting2.model.ChatRoom" alias="Chatroom"/>
+			<typeAlias type="kr.ac.kopo.chatting2.model.Suggest" alias="Suggest"/>
+		</typeAliases>
+		
+		<mappers>
+			<mapper resource="mybatis/user.xml" />
+			<mapper resource="mybatis/chatroomlist.xml" />
+			<mapper resource="mybatis/chatroom.xml" />
+			<mapper resource="mybatis/suggest.xml" />
+		</mappers> 
+		
+	</configuration>
