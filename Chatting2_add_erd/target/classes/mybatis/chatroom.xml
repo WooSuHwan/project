@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="chatroom">
+	<insert id="newchat" parameterType="Chatroom">
+		INSERT chatroom (user_code, chatroomlist_code, story) VALUES (#{user_code}, #{chatroomlist_code}, #{story})
+	</insert>
+	
+	<select id="getList" parameterType="Integer" resultType="Chatroom">
+		SELECT c.*, u.name AS chat_user_name FROM chatroom c LEFT JOIN user u ON c.user_code = u.code WHERE chatroomlist_code = #{room_code} ORDER BY time ASC
+	</select>
+</mapper>

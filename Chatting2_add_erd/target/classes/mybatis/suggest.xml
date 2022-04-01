@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="suggest">
+	<select id="list" resultType="Suggest">
+		SELECT * FROM suggest ORDER BY time DESC
+	</select>
+	
+	<insert id="add">
+		INSERT INTO suggest(user_code, name, story) VALUES (#{user_code}, #{name}, #{story})
+	</insert>
+	
+	<select id="enter" resultType="Suggest">
+		SELECT * FROM suggest WHERE code = #{code}
+	</select>
+	
+	<delete id="delete" parameterType="Suggest">
+		DELETE FROM suggest WHERE code = #{code} AND user_code = #{user_code}
+	</delete>
+</mapper>
